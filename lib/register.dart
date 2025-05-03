@@ -1,3 +1,4 @@
+import 'package:exambase/homepage.dart';
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -8,20 +9,23 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+   TextEditingController email = TextEditingController();
+  TextEditingController pass = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(12.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text("EXAM BASE", style: TextStyle( fontSize: 40, fontWeight: FontWeight.w900),),
               const Text("LOGIN HERE"),
+              SizedBox(height: 20,),
               TextFormField(
                         // maxLength: 11,
-                        //controller: fname,
+                        controller: email,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         decoration: const InputDecoration(
                           filled: true,
@@ -50,7 +54,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                        TextFormField(
                         // maxLength: 11,
-                        //controller: fname,
+                        controller: pass,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         decoration: const InputDecoration(
                           filled: true,
@@ -78,14 +82,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                       SizedBox( height: 20,),
 
-                      Container(
-                        height: 60,
-                        width: MediaQuery.of(context).size.width * 0.9,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.black
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(
+                              builder: (_) => const MyHomePage(),
+                            ),);
+                        },
+                        child: Container(
+                          height: 60,
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.black
+                          ),
+                          child: Center(child: Text("Login", style: TextStyle( color: Colors.white, fontSize: 20),)),
                         ),
-                        child: Center(child: Text("Login", style: TextStyle( color: Colors.white, fontSize: 20),)),
                       ),
                     
             ],
