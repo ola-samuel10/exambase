@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SubmitScreen extends StatefulWidget {
-  const SubmitScreen({super.key});
+  final String time, course;
+  const SubmitScreen({super.key, required this.time, required this.course});
 
   @override
   State<SubmitScreen> createState() => _SubmitScreenState();
@@ -18,9 +19,9 @@ class _SubmitScreenState extends State<SubmitScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.done, size: 50,),
-              Text("You Have Successfully Book 2:30am for your Physics Exam", textAlign: TextAlign.center, style: TextStyle( fontSize: 20, fontWeight: FontWeight.w800),),
-              SizedBox(height: 30,),
+              const Icon(Icons.done, size: 50,),
+               Text("You Have Successfully Book ${widget.time} for your ${widget.course} Exam", textAlign: TextAlign.center, style: const TextStyle( fontSize: 20, fontWeight: FontWeight.w800),),
+              const SizedBox(height: 30,),
                 GestureDetector(
                           // onTap: (){
                           //   Navigator.push(context, MaterialPageRoute(
@@ -34,7 +35,7 @@ class _SubmitScreenState extends State<SubmitScreen> {
                               borderRadius: BorderRadius.circular(10),
                               color: Colors.black
                             ),
-                            child: Center(child: Text("Print", style: TextStyle( color: Colors.white, fontSize: 20),)),
+                            child: const Center(child: Text("Print", style: TextStyle( color: Colors.white, fontSize: 20),)),
                           ),
                         ),
             ],
@@ -44,3 +45,5 @@ class _SubmitScreenState extends State<SubmitScreen> {
     );
   }
 }
+
+
